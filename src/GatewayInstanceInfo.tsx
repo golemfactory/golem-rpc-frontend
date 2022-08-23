@@ -1,5 +1,5 @@
 import './GatewayInstanceInfo.css';
-import React, {useState} from "react";
+import React from "react";
 import {GatewayInstance, timestamp_to_date, timestamp_to_timedifference} from "./GatewayInstance";
 
 interface GatewayInstanceInfoProps {
