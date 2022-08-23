@@ -1,6 +1,6 @@
 import './GatewayInstanceInfo.css';
 import React from "react";
-import {GatewayInstance, timestamp_to_date, timestamp_to_timedifference} from "./GatewayInstance";
+import {GatewayInstance, timestamp_to_date, timestamp_behind} from "./GatewayInstance";
 
 interface GatewayInstanceInfoProps {
     gatewayInstance: GatewayInstance;
@@ -95,7 +95,7 @@ function GatewayInstanceInfo(props:GatewayInstanceInfoProps) {
                             Last block behind:
                         </th>
                         <td>
-                            {timestamp_to_timedifference(props.gatewayInstance.block_info.timestamp)} seconds
+                            {timestamp_behind(props.gatewayInstance.block_info.timestamp)} seconds
                         </td>
                     </tr>
                 </tbody>
