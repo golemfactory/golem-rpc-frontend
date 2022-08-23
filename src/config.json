@@ -1,5 +1,4 @@
 {
-  "SERVER_URL": "https://example.com/api/",
   "BACKEND_URL": "https://gateway.golem.network/polygon/",
   "DEBUG": true,
   "THEME_COLORS": {

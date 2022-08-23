@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import './MainPage.css';
 import gatewayProvider from "./GatewayProvider";
 import {GatewayInstance} from "./GatewayInstance";
 import GatewayInstanceInfo from "./GatewayInstanceInfo";
 
 function Dashboard() {
     const [gatewayInstances, setGatewayInstances] = useState(new Array<GatewayInstance>());
-
-
 
     const handleDataProviderChange = function () {
         console.log(`handleDataProviderChange ${gatewayProvider.getInstances()}`);
