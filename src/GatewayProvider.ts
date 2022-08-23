@@ -66,7 +66,7 @@ class GatewayProvider {
     }
 
     async fetchGatewayInformation() {
-        const response = await fetch('https://gateway.golem.network/mumbai/instances');
+        const response = await fetch(`${config.BACKEND_URL}instances`);
         const instances = await response.json();
 
 

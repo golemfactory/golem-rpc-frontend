@@ -17,6 +17,7 @@ function Dashboard() {
     useEffect( () => {
         console.log("Dashboard.useEffect");
         gatewayProvider.registerListener(handleDataProviderChange);
+        setGatewayInstances(gatewayProvider.getInstances());
         return () => {
             gatewayProvider.unregisterListener(handleDataProviderChange);
         }
@@ -27,16 +28,22 @@ function Dashboard() {
 
         <div className="App">
             Dashboard
+            {gatewayInstances? (
+                <div>
+                    <div className="top-header">
+                    { gatewayInstances.map( (gatewayInstance: GatewayInstance) =>
+                        {
+                            return (<GatewayInstanceInfo gatewayInstance={gatewayInstance}></GatewayInstanceInfo>);
+                        })
+                    }
+                    </div>
+                    <div className="border">
 
-            <div className="top-header">
-            { gatewayInstances.map( (gatewayInstance: GatewayInstance) => {
-                return (<GatewayInstanceInfo gatewayInstance={gatewayInstance}></GatewayInstanceInfo>);
-            })}
-            </div>
-            <div className="border">
-
-                { JSON.stringify(gatewayInstances, null, 2)}
-            </div>
+                        { JSON.stringify(gatewayInstances, null, 2)}
+                    </div>
+                </div>)
+                :
+                (<div>Loading...</div>)}
         </div>
     );
 }
