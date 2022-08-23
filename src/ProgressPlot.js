@@ -1,5 +1,5 @@
 import Plot from 'react-plotly.js';
-import erigonProvider from "./ErigonProvider";
+import erigonProvider from "./GatewayProvider";
 import {useEffect, useState} from "react";
 
 
