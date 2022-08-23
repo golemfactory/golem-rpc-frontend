@@ -1,0 +1,15 @@
+.gateway-info {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid gray;
+}
+table.gateway-table th {
+    text-align: right;
+    padding: 2px 5px;
+}
+
+table.gateway-table td {
+    text-align: left;
+    padding: 2px 5px;
+}

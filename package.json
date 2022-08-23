@@ -16,7 +16,8 @@
     "react-router-dom": "^6.3.0",
     "react-plotly.js": "^2.5.1",
     "react-scripts": "^5.0.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "moment": "^2.29.4"
   },
   "scripts": {
     "start": "react-scripts start",

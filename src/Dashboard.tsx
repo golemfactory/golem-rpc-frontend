@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './MainPage.css';
 import gatewayProvider from "./GatewayProvider";
 import {GatewayInstance} from "./GatewayInstance";
+import GatewayInstanceInfo from "./GatewayInstanceInfo";
 
 function Dashboard() {
     const [gatewayInstances, setGatewayInstances] = useState(new Array<GatewayInstance>());
@@ -29,13 +30,13 @@ function Dashboard() {
 
             <div className="top-header">
             { gatewayInstances.map( (gatewayInstance: GatewayInstance) => {
-                return (<div>{gatewayInstance.uuid}</div>)
+                return (<GatewayInstanceInfo gatewayInstance={gatewayInstance}></GatewayInstanceInfo>);
             })}
             </div>
-                <div className="border">
+            <div className="border">
 
-            { JSON.stringify(gatewayInstances, null, 2)}
-                </div>
+                { JSON.stringify(gatewayInstances, null, 2)}
+            </div>
         </div>
     );
 }
