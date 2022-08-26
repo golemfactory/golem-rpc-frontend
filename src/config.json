@@ -1,5 +1,5 @@
 {
-  "BACKEND_URL": "http://localhost:8545/",
+  "BACKEND_URL": "https://gateway.golem.network/mumbai/",
   "DEBUG": true,
   "THEME_COLORS": {
     "PRIMARY": "#007bff",

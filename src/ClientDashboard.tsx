@@ -60,7 +60,7 @@ function ClientDashboard() {
         return null;
     };
 
-    const setTimeClick = (timeBin:string) => (event: React.MouseEvent<HTMLButtonElement>) => {
+    const setTimeEvent = (timeBin:string) => (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         setTimeBin(timeBin);
     };
@@ -85,16 +85,16 @@ function ClientDashboard() {
 
             return (
                 <div className="App">
-                    <button onClick={setTimeClick("seconds")}>
+                    <button onClick={setTimeEvent("seconds")}>
                         Show seconds
                     </button>
-                    <button onClick={setTimeClick("minutes")}>
+                    <button onClick={setTimeEvent("minutes")}>
                         Show minutes
                     </button>
-                    <button onClick={setTimeClick("hours")}>
+                    <button onClick={setTimeEvent("hours")}>
                         Show hours
                     </button>
-                    <button onClick={setTimeClick("days")}>
+                    <button onClick={setTimeEvent("days")}>
                         Show days
                     </button>
                     <div>
