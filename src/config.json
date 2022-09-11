@@ -1,5 +1,5 @@
 {
-  "BACKEND_URL": "backend/",
+  "BACKEND_URL": "api/",
   "DEBUG": true,
   "THEME_COLORS": {
     "PRIMARY": "#007bff",
