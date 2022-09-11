@@ -1,6 +1,5 @@
 {
-  "SERVER_URL": "https://example.com/api/",
-  "BACKEND_URL": "https://gateway.golem.network/mumbai/",
+  "BACKEND_URL": "backend/",
   "DEBUG": true,
   "THEME_COLORS": {
     "PRIMARY": "#007bff",

@@ -15,7 +15,8 @@ class GatewayProvider {
     private id: string;
 
     private gateInstances: Array<GatewayInstance>;
-    
+    private gateClients: any;
+
     constructor() {
         this.id = uuidv4();
         this.listeners = new Set();
@@ -25,6 +26,10 @@ class GatewayProvider {
 
     public getInstances() {
         return this.gateInstances;
+    }
+
+    public getClients() {
+        return this.gateClients;
     }
 
     registerListener(eventHandler:any) {
@@ -66,9 +71,13 @@ class GatewayProvider {
     }
 
     async fetchGatewayInformation() {
-        const response = await fetch('https://gateway.golem.network/mumbai/instances');
+        const response = await fetch(`${config.BACKEND_URL}instances`);
         const instances = await response.json();
 
+        const response_clients = await fetch(`${config.BACKEND_URL}clients`);
+        const clients = await response_clients.json();
+
+        this.gateClients = clients;
 
         this.gateInstances = [];
         for (let inst in instances["instances"]) {
