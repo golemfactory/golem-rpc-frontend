@@ -1,7 +1,7 @@
 {
   "name": "erigon-monitor-frontend",
   "version": "0.1.0",
-  "homepage": "./",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@types/jest": "^28.1.7",
