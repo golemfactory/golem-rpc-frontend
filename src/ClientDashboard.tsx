@@ -46,16 +46,16 @@ function ClientDashboard() {
 
     const getTimeBuckets = (gatewayClient:any) => {
         if (timeBin === "seconds") {
-            return gatewayClient["time_buckets_seconds"]["polygon"]
+            return gatewayClient["time_buckets_seconds"]["mumbai"]
         }
         if (timeBin === "minutes") {
-            return gatewayClient["time_buckets_minutes"]["polygon"]
+            return gatewayClient["time_buckets_minutes"]["mumbai"]
         }
         if (timeBin === "hours") {
-            return gatewayClient["time_buckets_hours"]["polygon"]
+            return gatewayClient["time_buckets_hours"]["mumbai"]
         }
         if (timeBin === "days") {
-            return gatewayClient["time_buckets_days"]["polygon"]
+            return gatewayClient["time_buckets_days"]["mumbai"]
         }
         return null;
     };
