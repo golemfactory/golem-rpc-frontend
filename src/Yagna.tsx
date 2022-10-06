@@ -6,11 +6,13 @@ import yagnaProvider from "./YagnaProvider";
 function Yagna() {
     const [yagnaInstance, setYagnaInstance] = useState();
     const [appInstance, setAppInstance] = useState();
+    const [testEndpoint, setTestEndpoint] = useState();
 
     const handleDataProviderChange = function () {
         console.log(`handleDataProviderChange ${yagnaProvider.getYagnaInstance()}`);
         setYagnaInstance(yagnaProvider.getYagnaInstance());
         setAppInstance(yagnaProvider.getAppInstance());
+        setTestEndpoint(yagnaProvider.getTestEndpoint());
     };
 
     useEffect( () => {
@@ -18,6 +20,7 @@ function Yagna() {
         yagnaProvider.registerListener(handleDataProviderChange);
         setYagnaInstance(yagnaProvider.getYagnaInstance());
         setAppInstance(yagnaProvider.getAppInstance());
+        setTestEndpoint(yagnaProvider.getTestEndpoint());
         return () => {
             yagnaProvider.unregisterListener(handleDataProviderChange);
         }
@@ -28,6 +31,14 @@ function Yagna() {
 
         <div className="App">
             <h2>Node information</h2>
+            {testEndpoint? (
+                <div className="universal-info">
+                    <b>Test RPC endpoint:</b>
+                    <div>
+                        {testEndpoint}
+                    </div>
+                </div>
+            ) : (<div>Loading...</div>)}
             {yagnaInstance? (
                 <>
                 <div className="universal-info">

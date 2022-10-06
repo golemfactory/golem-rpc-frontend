@@ -15,6 +15,7 @@ class YagnaProvider {
 
     private yagnaInstance: YagnaInstance;
     private appInstance: any;
+    private testEndpoint: any;
 
     constructor() {
         this.id = uuidv4();
@@ -41,6 +42,9 @@ class YagnaProvider {
     }
     getAppInstance():any {
         return this.appInstance;
+    }
+    getTestEndpoint():any {
+        return this.testEndpoint;
     }
 
 
@@ -75,6 +79,8 @@ class YagnaProvider {
         const response2 = await fetch(`${config.BACKEND_URL}app/current`);
         this.appInstance = await response2.json();
 
+        const response3 = await fetch(`${config.BACKEND_URL}test_client_endpoint`);
+        this.testEndpoint = await response3.text();
     }
 
     async updateDataLoop() {
