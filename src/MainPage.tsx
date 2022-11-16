@@ -1,12 +1,19 @@
 import './MainPage.css';
 import configData from "./config.json";
 import { Routes, Route, Link } from "react-router-dom";
-import React from 'react';
+import React, {useRef} from 'react';
 import Dashboard from "./Dashboard";
 import ClientDashboard from "./ClientDashboard";
 import Yagna from "./Yagna";
+import {useAuth} from "./Auth";
+import gatewayProvider from "./GatewayProvider";
 
 function MainPage() {
+	// @ts-ignore
+
+	const {token, setToken} = useAuth();
+	const inputTokenRef = useRef(null);
+
 	return (
 		<div className="App">
 			<div className="top-header">
@@ -25,6 +32,11 @@ function MainPage() {
 				<Routes>
 					<Route path="/" element={<div>
 						<div>
+							<div>Admin Token: {token}</div>
+							<div>
+								<input ref={inputTokenRef} defaultValue={token}></input>
+								<button onClick={() => setToken(inputTokenRef.current.value)}>Set token</button>
+							</div>
 							Config data:
 							{JSON.stringify(configData, null, 2)}
 						</div>

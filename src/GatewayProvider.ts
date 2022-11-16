@@ -10,6 +10,7 @@ if (config.DEBUG === false) {
 class GatewayProvider {
     private listeners: Set<any>;
     private last_error: string | null;
+    private token: string;
     private instances: any;
     private callbackCount: number;
     private id: string;
@@ -22,6 +23,7 @@ class GatewayProvider {
         this.listeners = new Set();
         this.instances = null;
         this.last_error = null;
+        this.token = "empty";
     }
 
     public getInstances() {
@@ -30,6 +32,10 @@ class GatewayProvider {
 
     public getClients() {
         return this.gateClients;
+    }
+
+    public setToken(token: string) {
+        this.token = token;
     }
 
     registerListener(eventHandler:any) {
@@ -71,11 +77,10 @@ class GatewayProvider {
     }
 
     async fetchGatewayInformation() {
-        const admin_token = "admin"
-        const response = await fetch(`${config.BACKEND_URL}instances/${admin_token}`);
+        const response = await fetch(`${config.BACKEND_URL}instances/${this.token}`);
         const instances = await response.json();
 
-        const response_clients = await fetch(`${config.BACKEND_URL}clients/${admin_token}`);
+        const response_clients = await fetch(`${config.BACKEND_URL}clients/${this.token}`);
         const clients = await response_clients.json();
 
         this.gateClients = clients;
