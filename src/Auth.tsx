@@ -1,6 +1,7 @@
 import React, {createContext, useContext, useState} from "react";
 import gatewayProvider from "./GatewayProvider";
 import config from "./config.json";
+import yagnaProvider from "./YagnaProvider";
 
 
 export const AuthContext = createContext(null)
@@ -12,6 +13,7 @@ export const AuthProvider = ({children}) => {
         console.log("getInitialState");
         let token = localStorage.getItem("token") || "";
         gatewayProvider.setToken(token);
+        yagnaProvider.setToken(token);
         return token;
     }
 
@@ -19,6 +21,7 @@ export const AuthProvider = ({children}) => {
 
     const setToken = function (val: string) {
         gatewayProvider.setToken(val);
+        yagnaProvider.setToken(val);
         setTokenState(val);
         localStorage.setItem('token', val);
     }

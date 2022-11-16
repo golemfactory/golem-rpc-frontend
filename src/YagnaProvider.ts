@@ -1,6 +1,7 @@
 import config from "./config.json";
 import {uuidv4} from "./Utils";
 import {YagnaInstance} from "./YagnaInstance";
+import {useState} from "react";
 
 let DEBUG = true;
 if (config.DEBUG === false) {
@@ -12,6 +13,7 @@ class YagnaProvider {
     private last_error: string | null;
     private callbackCount: number;
     private id: string;
+    private token: string;
 
     private yagnaInstance: YagnaInstance;
     private appInstance: any;
@@ -21,6 +23,12 @@ class YagnaProvider {
         this.id = uuidv4();
         this.listeners = new Set();
         this.last_error = null;
+        this.token = "";
+    }
+
+    setToken(token: string) {
+        this.token = token;
+        this.fetchYagnaInformation();
     }
 
     registerListener(eventHandler:any) {
@@ -73,13 +81,13 @@ class YagnaProvider {
     }
 
     async fetchYagnaInformation() {
-        const response = await fetch(`${config.BACKEND_URL}yagna`);
+        const response = await fetch(`${config.BACKEND_URL}yagna/${this.token}`);
         this.yagnaInstance = await response.json();
 
-        const response2 = await fetch(`${config.BACKEND_URL}app/current`);
+        const response2 = await fetch(`${config.BACKEND_URL}app/current/${this.token}`);
         this.appInstance = await response2.json();
 
-        const response3 = await fetch(`${config.BACKEND_URL}test_client_endpoint`);
+        const response3 = await fetch(`${config.BACKEND_URL}test_client_endpoint/${this.token}`);
         this.testEndpoint = await response3.text();
     }
 

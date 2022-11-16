@@ -49,16 +49,24 @@ function MainPage() {
 				<Routes>
 					<Route path="/" element={<div>
 						<div>
-							<div>Admin Token: {token} - {tokenMsg}</div>
-							<div>
+							<div className={"padding"}>
+								<h3>Admin Token:</h3>
+								<p>Token: {token}</p>
+								<p>Token check: {tokenMsg}</p>
+							</div>
+							<div className={"padding"}>
 								<input ref={inputTokenRef} defaultValue={token}></input>
 								<button onClick={() => checkToken(inputTokenRef.current.value)}>Set token</button>
 							</div>
-							<div>
+							<div className={"padding"}>
 								<a href={configData.BACKEND_URL + "info/" + token}>Backend api: {configData.BACKEND_URL + "info/" + token}</a>
 							</div>
-							Config data:
-							{JSON.stringify(configData, null, 2)}
+							<div className={"padding"}>
+								<h3>Config data:</h3>
+								<textarea>
+									{JSON.stringify(configData, null, 2)}
+								</textarea>
+							</div>
 						</div>
 					</div>}></Route>
 					<Route path="yagna" element={<Yagna/>}></Route>

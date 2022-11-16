@@ -67,3 +67,7 @@ textarea.universal {
     height: 200px;
     width: 40%;
 }
+
+div.padding {
+    padding: 10px;
+}
