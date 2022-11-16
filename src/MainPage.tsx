@@ -9,8 +9,6 @@ import {useAuth} from "./Auth";
 import gatewayProvider from "./GatewayProvider";
 
 function MainPage() {
-	// @ts-ignore
-
 	const {token, setToken} = useAuth();
 	const inputTokenRef = useRef(null);
 
