@@ -71,10 +71,11 @@ class GatewayProvider {
     }
 
     async fetchGatewayInformation() {
-        const response = await fetch(`${config.BACKEND_URL}instances`);
+        const admin_token = "admin"
+        const response = await fetch(`${config.BACKEND_URL}instances/${admin_token}`);
         const instances = await response.json();
 
-        const response_clients = await fetch(`${config.BACKEND_URL}clients`);
+        const response_clients = await fetch(`${config.BACKEND_URL}clients/${admin_token}`);
         const clients = await response_clients.json();
 
         this.gateClients = clients;
