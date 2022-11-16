@@ -1,8 +1,6 @@
 import React, {createContext, useContext, useState} from "react";
 import gatewayProvider from "./GatewayProvider";
-import config from "./config.json";
 import yagnaProvider from "./YagnaProvider";
-
 
 export const AuthContext = createContext(null)
 export const useAuth = () => useContext(AuthContext)

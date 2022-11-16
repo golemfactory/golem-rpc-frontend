@@ -5,6 +5,7 @@ import {GatewayInstance} from "./GatewayInstance";
 import GatewayInstanceInfo from "./GatewayInstanceInfo";
 import Plot from "react-plotly.js";
 import {DateTime} from "luxon";
+import config from "./config.json";
 
 function ClientDashboard() {
     const [gatewayClients, setGatewayClients] = useState({});
@@ -46,16 +47,16 @@ function ClientDashboard() {
 
     const getTimeBuckets = (gatewayClient:any) => {
         if (timeBin === "seconds") {
-            return gatewayClient["time_buckets_seconds"]["mumbai"]
+            return gatewayClient["time_buckets_seconds"][config.NETWORK]
         }
         if (timeBin === "minutes") {
-            return gatewayClient["time_buckets_minutes"]["mumbai"]
+            return gatewayClient["time_buckets_minutes"][config.NETWORK]
         }
         if (timeBin === "hours") {
-            return gatewayClient["time_buckets_hours"]["mumbai"]
+            return gatewayClient["time_buckets_hours"][config.NETWORK]
         }
         if (timeBin === "days") {
-            return gatewayClient["time_buckets_days"]["mumbai"]
+            return gatewayClient["time_buckets_days"][config.NETWORK]
         }
         return null;
     };

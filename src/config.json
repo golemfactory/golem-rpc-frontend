@@ -1,8 +1,5 @@
 {
-  "BACKEND_URL": "api/",
+  "NETWORK": "mumbai",
+  "BACKEND_URL": "https://mumbai-temp.golem.network/api/",
   "DEBUG": true,
-  "THEME_COLORS": {
-    "PRIMARY": "#007bff",
-    "SECONDARY": "#fc3"
-  }
 }
