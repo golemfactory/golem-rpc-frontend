@@ -1,5 +1,1 @@
-{
-  "NETWORK": "mumbai",
-  "BACKEND_URL": "https://mumbai-temp.golem.network/api/",
-  "DEBUG": true
-}
+../etc/config.json

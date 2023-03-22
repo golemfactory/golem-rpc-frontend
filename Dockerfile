@@ -16,8 +16,7 @@ RUN npm install
 COPY tsconfig.json ./
 COPY public ./public
 COPY src ./src
+COPY etc ./etc
 
 # Build for production.
-RUN npm run build
-
-CMD serve -s build
+CMD npm run build && serve -s build
